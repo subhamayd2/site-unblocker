@@ -1,0 +1,71 @@
+{
+  "name": "site-unblocker",
+  "description": "Simple GUI for goodbyeDPI",
+  "author": "Subhamay Dutta",
+  "version": "0.1.0",
+  "private": true,
+  "main": "main.js",
+  "homepage": ".",
+  "build": {
+    "productName": "Site unblocker",
+    "appId": "com.subhamay",
+    "files": [
+      "build/**/*",
+      "node_modules/**/*"
+    ],
+    "directories": {
+      "buildResources": "build",
+      "output": "release/"
+    },
+    "win": {
+      "target": "msi",
+      "icon": "build/icon.png"
+    }
+  },
+  "dependencies": {
+    "@material-ui/core": "^4.11.4",
+    "@material-ui/icons": "^4.11.2",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^11.2.7",
+    "@testing-library/user-event": "^12.8.3",
+    "clsx": "^1.1.1",
+    "electron-is-dev": "^2.0.0",
+    "lodash": "^4.17.21",
+    "mui-theme-switcher": "^1.1.0",
+    "node-run-cmd": "^1.0.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "4.0.3",
+    "sudo-prompt": "^9.2.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "preelectron-build": "robocopy . build/electron main.js preload.js services.js & robocopy bin build/electron/bin & exit 0",
+    "electron-build": "electron-builder build --win -c.extraMetadata.main=build/electron/main.js --publish=never"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "electron": "^13.1.2",
+    "electron-builder": "^22.11.7"
+  }
+}
